@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="compile_sample" default="compile" basedir=".">
+	<property name="wanwan.home" location="/usr/share/tomcat6/webapps/wanwan" />
+	<property name="wanwan.classes" location="${wanwan.home}/WEB-INF/classes" />
+	<property name="wanwan.lib"   location="${wanwan.home}/WEB-INF/lib"/>
+    <property name="wanwan.src"   location="${wanwan.home}/WEB-INF/src"/>
+
+	<path id="classpath">
+	        <fileset dir="${wanwan.lib}" includes="*.jar"/>
+	        <pathelement location="${wanwan.classes}"/>
+	</path>
+	
+	<target name="compile">
+		<mkdir dir="${wanwan.classes}" />
+		<javac destdir="${wanwan.classes}" source="1.7">
+			<compilerarg value="-Xlint:unchecked" />
+			<classpath refid="classpath" />
+			<src path="${wanwan.src}" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+</project>
