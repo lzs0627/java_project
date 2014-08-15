@@ -10,7 +10,13 @@
 	        <pathelement location="${wanwan.classes}"/>
 	</path>
 	
-	<target name="compile">
+
+	<target name="clean" >
+		<delete dir="${wanwan.classes}"/>
+	</target>
+
+
+	<target name="compile" depends="clean">
 		<mkdir dir="${wanwan.classes}" />
 		<javac destdir="${wanwan.classes}" source="1.7">
 			<compilerarg value="-Xlint:unchecked" />

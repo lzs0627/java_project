@@ -3,7 +3,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.List;
 
-
+import beans.*;
+import dao.*;
 
 public class HelloWorld extends HttpServlet {
 
@@ -24,7 +25,7 @@ public class HelloWorld extends HttpServlet {
 
     for(EmployeBean item:ls) {
         //out.println(item.getJpName());
-        out.println(item.getEnName());
+        out.println(item.getEmail());
     }
 
     

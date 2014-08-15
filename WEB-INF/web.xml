@@ -15,4 +15,15 @@
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
 
+<!--admin-->
+  <servlet>
+    <servlet-name>admin_employe_list</servlet-name>
+    <servlet-class>AdminEmployeList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_employe_list</servlet-name>
+    <url-pattern>/admin/employelist</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>
