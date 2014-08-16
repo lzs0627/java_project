@@ -1,0 +1,13 @@
+1. 打开虚拟机
+ 
+步骤1：  桌面-＞ckw.exe
+cd virtualbox
+vagrant up
+
+步骤2： 桌面 【Tera Term】
+输入密码：vagrant vagrant
+cd /usr/share/tomcat6/webapps/wanwan/
+
+
+
+

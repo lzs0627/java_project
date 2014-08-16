@@ -24,7 +24,7 @@ public class HelloWorld extends HttpServlet {
     out.println("<body>");
 
     for(EmployeBean item:ls) {
-        //out.println(item.getJpName());
+        out.println(item.getJpName());
         out.println(item.getEmail());
     }
 
