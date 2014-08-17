@@ -25,5 +25,31 @@
     <url-pattern>/admin/employelist</url-pattern>
   </servlet-mapping>
 
-
+<!--login-->
+  <servlet>
+    <servlet-name>admin_login</servlet-name>
+    <servlet-class>AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_login</servlet-name>
+    <url-pattern>/admin/login</url-pattern>
+  </servlet-mapping>
+<!--meun-->
+ <servlet>
+    <servlet-name>admin_meun</servlet-name>
+    <servlet-class>AdminMeun</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_meun</servlet-name>
+    <url-pattern>/admin/</url-pattern>
+  </servlet-mapping>
+  <!--employeAdd-->
+  <servlet>
+    <servlet-name>admin_employeAdd</servlet-name>
+    <servlet-class>AdminEmployeAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_employeAdd</servlet-name>
+    <url-pattern>/admin/employeAdd</url-pattern>
+  </servlet-mapping>
 </web-app>

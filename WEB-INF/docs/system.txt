@@ -9,5 +9,9 @@ vagrant up
 cd /usr/share/tomcat6/webapps/wanwan/
 
 
+javaを修正した場合
+ant を実行
 
+web.xmlを修正した場合
+sudo service tomcat6 restart　　　を実行
 
