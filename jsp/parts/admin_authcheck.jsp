@@ -1,10 +1,9 @@
-<%@ page import="javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpSession,javax.servlet.http.HttpServletResponse" %>
 <%
            HttpSession sn = request.getSession();
            
-           Object admin = sn.getAttribute("admin");
+           String admin = (String)sn.getAttribute("admin");
            //session.setAttribute("admin","admin");
            if (admin == null) {
-               response.sendRedirect("/admin_login.jsp");
+               response.sendRedirect("/wanwan/admin/login");
            }
 %>

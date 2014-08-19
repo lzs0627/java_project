@@ -13,7 +13,7 @@ public class AdminMeun extends HttpServlet {
 
     getServletConfig()
     .getServletContext()
-    .getRequestDispatcher("/jsp/admin_meun.jsp" )
+    .getRequestDispatcher("/jsp/admin_main.jsp" )
     .forward( request, response );
 
   }
