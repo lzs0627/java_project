@@ -14,12 +14,12 @@
                     <ul class="sidebar-menu">
                         <li>
                             <a href="../../index.html">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                <i class="fa fa-dashboard"></i> <span>職員管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="../widgets.html">
-                                <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
+                                <i class="fa fa-th"></i> <span>部門管理</span>
                             </a>
                         </li>
                         <li class="treeview">
@@ -83,17 +83,12 @@
                         </li>
                         <li class="treeview active">
                             <a href="#">
-                                <i class="fa fa-folder"></i> <span>Examples</span>
+                                <i class="fa fa-folder"></i> <span>システム設定</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="invoice.html"><i class="fa fa-angle-double-right"></i> Invoice</a></li>
-                                <li><a href="login.html"><i class="fa fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="register.html"><i class="fa fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="lockscreen.html"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>
-                                <li><a href="404.html"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>
-                                <li><a href="500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
-                                <li class="active"><a href="blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
+                                <li class="active"><a href="invoice.html"><i class="fa fa-angle-double-right"></i> 部門管理</a></li>
+                                <li><a href="/wanwan/admin/position"><i class="fa fa-angle-double-right"></i> 役職管理</a></li>
                             </ul>
                         </li>
                     </ul>

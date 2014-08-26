@@ -52,4 +52,15 @@
     <servlet-name>admin_employeAdd</servlet-name>
     <url-pattern>/admin/employeAdd</url-pattern>
   </servlet-mapping>
+  <!--position-->
+  <servlet>
+    <servlet-name>admin_position</servlet-name>
+    <servlet-class>AdminPosition</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_position</servlet-name>
+    <url-pattern>/admin/position</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>
