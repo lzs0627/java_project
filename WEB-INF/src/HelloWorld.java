@@ -12,7 +12,7 @@ public class HelloWorld extends HttpServlet {
     throws IOException, ServletException{
 
     EmployeDao employeDao = new EmployeDao();
-    List<EmployeBean> ls = employeDao.getAllEmaployes("50","0");
+    List<EmployeBean> ls = employeDao.getAllEmployes("50","0");
 
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();

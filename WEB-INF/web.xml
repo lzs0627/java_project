@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
@@ -17,12 +17,12 @@
 
 <!--admin-->
   <servlet>
-    <servlet-name>admin_employe_list</servlet-name>
-    <servlet-class>AdminEmployeList</servlet-class>
+    <servlet-name>admin_employe</servlet-name>
+    <servlet-class>AdminEmploye</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>admin_employe_list</servlet-name>
-    <url-pattern>/admin/employelist</url-pattern>
+    <servlet-name>admin_employe</servlet-name>
+    <url-pattern>/admin/employe</url-pattern>
   </servlet-mapping>
 
 <!--login-->
@@ -62,5 +62,22 @@
     <url-pattern>/admin/position</url-pattern>
   </servlet-mapping>
 
-
+  <!--department-->
+  <servlet>
+    <servlet-name>admin_department</servlet-name>
+    <servlet-class>AdminDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_department</servlet-name>
+    <url-pattern>/admin/department</url-pattern>
+  </servlet-mapping>
+  <!--attendance-->
+  <servlet>
+    <servlet-name>admin_attendance</servlet-name>
+    <servlet-class>AdminAttendance</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_attendance</servlet-name>
+    <url-pattern>/admin/attendance</url-pattern>
+  </servlet-mapping>
 </web-app>

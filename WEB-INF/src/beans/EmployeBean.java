@@ -2,6 +2,24 @@ package beans;
 
 public class EmployeBean {
 	
+
+	public EmployeBean () {
+		this.id="";
+		this.jp_name="";
+		this.en_name="";
+		this.email="";
+		this.password="";
+		this.face_img="";
+		this.department_id="";
+		this.department_name="";
+		this.address="";
+		this.enter_date="";
+		this.leave_date="";
+		this.position_name="";
+		this.position_id="";
+	}
+
+
 	//id:get,set
 	private String id;
 	public void setId(String id) {
@@ -100,7 +118,7 @@ public class EmployeBean {
 
 	private String position_id;
 	public void setPositionId(String id) {
-		this.position_id = position_id;
+		this.position_id = id;
 	}
 	public String getPositionId() {
 		return this.position_id;

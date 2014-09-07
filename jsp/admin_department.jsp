@@ -14,7 +14,7 @@
 <%@ include file="parts/admin_menu.jsp" %>
 <%
 
-List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("positionList");
+List<DepartmentBean> departmentList = (List<DepartmentBean>)request.getAttribute("departmentList");
 
 %>
 <!-- Right side column. Contains the navbar and content of the page -->
@@ -23,7 +23,7 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
     <section class="content-header">
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title"><i class="fa fa-edit"></i>役職追加</h3>
+                <h3 class="box-title"><i class="fa fa-edit"></i>部門追加</h3>
             </div>
             <div class="box-body">
                 <div class="row">
@@ -48,26 +48,26 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
     <section class="content">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">役職一覧<h3>
+                <h3 class="box-title">部門情報一覧<h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>役職名</th>
+                        <th>部門名</th>
                         <th>備考</th>
                         <th style="width: 40px">Action</th>
                     </tr>
-<%for(PositionBean position:positionList){%>
+<%for(DepartmentBean department:departmentList){%>
                     <tr>
-                        <td><%=position.getId()%></td>
-                        <td><%=position.getName()%></td>
+                        <td><%=department.getId()%></td>
+                        <td><%=department.getName()%></td>
                         <td>
-                            <%=position.getDescription()%>
+                            <%=department.getDescription()%>
                         </td>
                         <td>
-                            <a href="/wanwan/admin/position?pid=<%=position.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
+                            <a href="/wanwan/admin/department?pid=<%=department.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
                         </td>
                     </tr>
 <% } %>                                        

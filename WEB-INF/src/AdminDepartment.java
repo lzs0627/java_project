@@ -6,35 +6,37 @@ import java.util.List;
 import beans.*;
 import dao.*;
 
-public class AdminPosition extends HttpServlet {
+public class AdminDepartment extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{
 
-    request.setAttribute("menuid", "position");   
-    PositionDao positionDao = new PositionDao();
+
+    request.setAttribute("menuid", "department");
+
+    DepartmentDao departmentDao = new DepartmentDao();
 
     String id = request.getParameter("pid");
 
-    List<PositionBean> ls = positionDao.getAllPositions("50","0");
+    List<DepartmentBean> ls = departmentDao.getAllDepartments("50","0");
 
-    request.setAttribute("positionList", ls);  
+    request.setAttribute("departmentList", ls);  
      
     if (id == null || id.length() == 0) {
          
 
         getServletConfig()
         .getServletContext()
-        .getRequestDispatcher("/jsp/admin_position.jsp" )
+        .getRequestDispatcher("/jsp/admin_department.jsp" )
         .forward( request, response );
     } else {
-        PositionBean bean = positionDao.getDetail(id);
+        DepartmentBean bean = departmentDao.getDetail(id);
 
-        request.setAttribute("position", bean);    
+        request.setAttribute("department", bean);    
 
         getServletConfig()
         .getServletContext()
-        .getRequestDispatcher("/jsp/admin_edit_position.jsp" )
+        .getRequestDispatcher("/jsp/admin_edit_department.jsp" )
         .forward( request, response );
     }
 
@@ -46,28 +48,28 @@ public class AdminPosition extends HttpServlet {
     throws IOException, ServletException{
 
         request.setCharacterEncoding("UTF-8");
-        request.setAttribute("menuid", "position");
+        request.setAttribute("menuid", "department");
         String action = request.getParameter("action");
         String id = request.getParameter("pid");
         String name = request.getParameter("pname");
         String desc = request.getParameter("pdesc");
-        PositionBean bean = new PositionBean();
-        PositionDao positionDao = new PositionDao();
+        DepartmentBean bean = new DepartmentBean();
+        DepartmentDao departmentDao = new DepartmentDao();
   
         if (action.equals("add")) {
             bean.setName(name);
             bean.setDescription(desc);
-            positionDao.addPosition(bean);
+            departmentDao.addDepartment(bean);
         } else if (action.equals("update")) {
             bean.setId(id);
             bean.setName(name);
             bean.setDescription(desc);
-            positionDao.addPosition(bean);
+            departmentDao.addDepartment(bean);
         } else if (action.equals("del")) {
-            positionDao.deletePosition(id);
+            departmentDao.deleteDepartment(id);
         }
         
-       response.sendRedirect("/wanwan/admin/position");
+       response.sendRedirect("/wanwan/admin/department");
 
   }
 }

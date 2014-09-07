@@ -13,8 +13,8 @@
 <div class="wrapper row-offcanvas row-offcanvas-left">
 <%@ include file="parts/admin_menu.jsp" %>
 <%
-
-List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("positionList");
+List<DepartmentBean> departmentList = (List<DepartmentBean>)request.getAttribute("departmentList");
+DepartmentBean departmentbean = (DepartmentBean)request.getAttribute("department");
 
 %>
 <!-- Right side column. Contains the navbar and content of the page -->
@@ -23,22 +23,34 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
     <section class="content-header">
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title"><i class="fa fa-edit"></i>役職追加</h3>
+                
+                <div class="col-xs-4">
+                    <h3 class="box-title"><i class="fa fa-edit"></i>部門情報修正
+                    <form action="" method="post" style="float:right;margin-left:20px;" onsubmit="return confirm('削除してもOKですか？')">
+                        <input type="hidden" name="action" value="del"/>
+                        <input type="hidden" name="pid" value="<%=departmentbean.getId()%>"/>
+                        <button type="submit" class="btn btn-danger  btn-sm" id="btn-add">削除する</button>
+                    </form>
+                    </h3>
+                </div>
             </div>
             <div class="box-body">
                 <div class="row">
                     <form action="" method="post">
-                        <input type="hidden" name="action" value="add"/>
+                        <input type="hidden" name="action" value="update"/>
+                        <input type="hidden" name="pid" value="<%=departmentbean.getId()%>"/>
                     <div class="col-xs-3">
-                        <input type="text" class="form-control" placeholder="役職名" name="pname">
+                        <input type="text" class="form-control" placeholder="役職名" name="pname" value="<%=departmentbean.getName()%>">
                     </div>
                     <div class="col-xs-6">
-                        <input type="text" class="form-control" placeholder="備考" name="pdesc">
+                        <input type="text" class="form-control" placeholder="備考" name="pdesc" value="<%=departmentbean.getDescription()%>">
                     </div>
                     <div class="col-xs-3">
-                        <button type="submit" class="btn btn-primary" id="btn-add">追加する</button>
+                        <button type="submit" class="btn btn-primary" id="btn-add">修正する</button>
+                        <a href="/wanwan/admin/department"　 class="btn btn-primary" >キャンセルする</a>
                     </div>
                 </form>
+                
                 </div>
             </div><!-- /.box-body -->
         </div>
@@ -48,26 +60,26 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
     <section class="content">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">役職一覧<h3>
+                <h3 class="box-title">部門一覧<h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>役職名</th>
+                        <th>部門名</th>
                         <th>備考</th>
                         <th style="width: 40px">Action</th>
                     </tr>
-<%for(PositionBean position:positionList){%>
+<%for(DepartmentBean department:departmentList){%>
                     <tr>
-                        <td><%=position.getId()%></td>
-                        <td><%=position.getName()%></td>
+                        <td><%=department.getId()%></td>
+                        <td><%=department.getName()%></td>
                         <td>
-                            <%=position.getDescription()%>
+                            <%=department.getDescription()%>
                         </td>
                         <td>
-                            <a href="/wanwan/admin/position?pid=<%=position.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
+                            <a href="/wanwan/admin/department?pid=<%=department.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
                         </td>
                     </tr>
 <% } %>                                        

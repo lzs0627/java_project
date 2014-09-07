@@ -8,16 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.PreparedStatement;
 
-import beans.PositionBean;
+import beans.*;
 
-public class PositionDao {
+public class DepartmentDao {
 
-
-	public List<PositionBean> getAllPositions(String limit, String offset) {
+	public List<DepartmentBean> getAllDepartments(String limit, String offset) {
 
 		String sql = "SELECT id, name, description ";
-				sql +=" FROM position limit " + offset +"," + limit;
-		List<PositionBean> positionList = new ArrayList<PositionBean>();
+				sql +=" FROM department limit " + offset +"," + limit;
+		List<DepartmentBean> departmentList = new ArrayList<DepartmentBean>();
 				
 		try {
 			Connection con = DBManager.getConnection();
@@ -26,11 +25,11 @@ public class PositionDao {
 			
 
 			while (result.next()) {
-				PositionBean bean = new PositionBean();
+				DepartmentBean bean = new DepartmentBean();
 				bean.setId(result.getString(1));
 				bean.setName(result.getString(2));
 				bean.setDescription(result.getString(3));
-				positionList.add(bean);
+				departmentList.add(bean);
 			}
 		}
 		catch (SQLException e)
@@ -40,13 +39,13 @@ public class PositionDao {
 
 		
 
-		return positionList;
+		return departmentList;
 	}
 
-	public PositionBean getDetail(String id) {
+	public DepartmentBean getDetail(String id) {
 
 		String sql = "SELECT id, name, description ";
-				sql +=" FROM position where id = "+id+" limit 0,1";
+				sql +=" FROM department where id = "+id+" limit 0,1";
 		
 				
 		try {
@@ -56,7 +55,7 @@ public class PositionDao {
 			
 
 			if (result.next()) {
-				PositionBean bean = new PositionBean();
+				DepartmentBean bean = new DepartmentBean();
 				bean.setId(result.getString(1));
 				bean.setName(result.getString(2));
 				bean.setDescription(result.getString(3));
@@ -75,11 +74,11 @@ public class PositionDao {
 		return null;
 	}
 
-	public void addPosition(PositionBean position) {
+	public void addDepartment(DepartmentBean department) {
 
-		String id = position.getId();
-		String name = position.getName();
-		String desc = position.getDescription();
+		String id = department.getId();
+		String name = department.getName();
+		String desc = department.getDescription();
 		String sql = "";
 
 		
@@ -87,7 +86,7 @@ public class PositionDao {
 			Connection con = DBManager.getConnection();
 			if (id==null) {
 				PreparedStatement stmt = con.prepareStatement(
-	                        "insert into position "
+	                        "insert into department "
 	                                + "(name,description) "
 	                                + " values(?,?)");
 				stmt.setString(1,name);
@@ -95,9 +94,9 @@ public class PositionDao {
 				stmt.execute();
 
 			} else {
-				sql += "update position set name='" + name + "',description='" + desc + "' where id=" + id;
+				sql += "update department set name='" + name + "',description='" + desc + "' where id=" + id;
 				PreparedStatement stmt = con.prepareStatement(
-	                        "update position set  "
+	                        "update department set  "
 	                                + "name=?,"
 	                                + "description=?"
 	                                + " where id=?");
@@ -114,11 +113,11 @@ public class PositionDao {
 		}
 	}
 
-	public void deletePosition(String id){
+	public void deleteDepartment(String id){
 		try {
 			Connection con = DBManager.getConnection();
 			PreparedStatement stmt = con.prepareStatement(
-	                        "delete from position  where id=?");
+	                        "delete from department  where id=?");
 				stmt.setString(1,id);
 				stmt.execute();
 		}
