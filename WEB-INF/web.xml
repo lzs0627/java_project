@@ -80,4 +80,13 @@
     <servlet-name>admin_attendance</servlet-name>
     <url-pattern>/admin/attendance</url-pattern>
   </servlet-mapping>
+  <!--upload-->
+  <servlet>
+    <servlet-name>admin_upload</servlet-name>
+    <servlet-class>AdminUploadFaceImg</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin_upload</servlet-name>
+    <url-pattern>/admin/upload</url-pattern>
+  </servlet-mapping>
 </web-app>

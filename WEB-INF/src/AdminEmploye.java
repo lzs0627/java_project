@@ -82,7 +82,6 @@ public class AdminEmploye extends HttpServlet {
         } else {
 
 
-
             bean.setId(request.getParameter("e_id"));
             bean.setJpName(request.getParameter("e_name"));
             bean.setEnName(request.getParameter("e_en_name"));
@@ -93,6 +92,7 @@ public class AdminEmploye extends HttpServlet {
             bean.setAddress(request.getParameter("e_address"));
             bean.setEnterDate(request.getParameter("e_enterdate"));
             bean.setLeaveDate(request.getParameter("e_leavedate"));
+            bean.setBirthday(request.getParameter("e_birthday"));
             employeDao.addEmploye(bean);
         }
         

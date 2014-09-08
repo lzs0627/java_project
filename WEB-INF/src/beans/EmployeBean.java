@@ -132,7 +132,14 @@ public class EmployeBean {
 		return this.position_name;
 	}
 
+	private String birthday;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public String getBirthday() {
+		return this.birthday;
+	}
 
-
+	
 
 }

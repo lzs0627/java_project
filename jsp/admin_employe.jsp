@@ -26,45 +26,43 @@ List<EmployeBean> employeList = (List<EmployeBean>)request.getAttribute("employe
 
     <!-- Main content -->
     <section class="content">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">社員一覧<h3>
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                <table class="table table-bordered">
-                    <tbody>
-                    <tr>
-                        <th style="width: 10px">#</th>
-                        <th>名前</th>
-                        <th>読み方</th>
-                        <th>メール</th>
-                        <th>所属</th>
-                        <th>役職</th>
-                        <th>住所</th>
-                        <th>入社日</th>
-                        <th>退社日</th>
-                        <th style="width: 40px">Action</th>
-                    </tr>
+
 <% if (employeList!=null) for(EmployeBean employebean:employeList){%>
+    <div class="box" style="width:400px;float:left;overflow:auto;margin:5px;">
+        <div class="box-header">
+            <h3 class="box-title"><%=employebean.getJpName()%><small><%=employebean.getEnName()%></small><h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
                     <tr>
-                        <td><%=employebean.getId()%></td>
-                        <td><%=employebean.getJpName()%></td>
-                        <td><%=employebean.getEnName()%></td>
-                        <td><%=employebean.getEmail()%></td>
-                        <td><%=employebean.getDepartmentName()%></td>
-                        <td><%=employebean.getPositionName()%></td>
-                        <td><%=employebean.getAddress()%></td>
-                        <td><%=employebean.getEnterDate()%></td>
-                        <td><%=employebean.getLeaveDate()%></td>
-                        <td>
-                            <a href="/wanwan/admin/employe?eid=<%=employebean.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
-                        </td>
+                        <td rowspan="5" style="width:150px;"><img src="/wanwan/img/faces/<%=employebean.getFaceImg()%>" width="150"/></td>
+                        <td><label style="width:70px;">社員番号:</label><a href="/wanwan/admin/employe?eid=<%=employebean.getId()%>" alt="修正">E00<%=employebean.getId()%></a></td>                        
                     </tr>
-<% } %>                                        
-                    </tbody>
-                </table>
-            </div><!-- /.box-body -->
+                    <tr>
+                        <td><label style="width:70px;">生年月日:</label></td>
+                    </tr>
+                    <tr>
+                        <td><label style="width:70px;">メール:</label><%=employebean.getEmail()%></td>
+                    </tr>
+                    <tr>                        
+                        <td><label style="width:70px;">入社日付:</label><%=employebean.getEnterDate()%></td>
+                    </tr>
+                    <tr> 
+                        <td><label style="width:70px;">退社日付:</label><%=employebean.getLeaveDate()%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label style="width:40px;">住所:</label><%=employebean.getAddress()%></td>
+                    </tr>
+                    <tr>
+                        <td><label style="width:40px;">所属:</label><%=employebean.getDepartmentName()%></td>
+                        <td><label style="width:40px;">役職:</label><%=employebean.getPositionName()%></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
+<% } %>
 
     </section><!-- /.content -->
 </aside><!-- /.right-side -->

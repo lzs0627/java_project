@@ -88,6 +88,7 @@ public class AdminAttendance extends HttpServlet {
             attendanceBean.setStartAt(start_at);
             attendanceBean.setEndAt(end_at);
             attendanceDao.add(attendanceBean);
+            
         } else if (action.equals("del")) {
             attendanceDao.delete(aid);
         }
