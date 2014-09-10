@@ -11,7 +11,15 @@
     <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="../css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
+    <!-- daterange picker -->
+    <link href="../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- date picker -->
+    <link href="../css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar -->
+    <link href="../css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="../css/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
+    <!-- Bootstrap time Picker -->
+    <link href="../css/timepicker/bootstrap-timepicker.min.css" rel="stylesheet"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -73,7 +73,7 @@ if(faceimg==null || faceimg.length()<1){%>
                                                     <td>
                                                         <div class="input-group">
                                                             <span for="e_birthday" class="input-group-addon">生年月日</span>
-                                                            <input type="text" class="form-control" id="e_birthday" name="e_birthday" value="<%=employe.getBirthday()%>" placeholder="生年月日">
+                                                            <input type="text" class="form-control datepicker" id="e_birthday" name="e_birthday" value="<%=employe.getBirthday()%>" placeholder="生年月日">
                                                         </div>
                                                     </td>                        
                                                 </tr>
@@ -97,7 +97,7 @@ if(faceimg==null || faceimg.length()<1){%>
                                                     <td>
                                                         <div class="input-group">
                                                             <span for="e_enterdate" class="input-group-addon">入社日付</span>
-                                                            <input type="text" class="form-control" id="e_enterdate" name="e_enterdate" value="<%=employe.getEnterDate()%>"placeholder="入社日付">
+                                                            <input type="text" class="form-control datepicker" id="e_enterdate" name="e_enterdate" value="<%=employe.getEnterDate()%>"placeholder="入社日付">
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -105,7 +105,7 @@ if(faceimg==null || faceimg.length()<1){%>
                                                     <td>
                                                         <div class="input-group">
                                                             <span for="e_leavedate" class="input-group-addon">退社日付</span>
-                                                            <input type="text" class="form-control" id="e_leavedate" name="e_leavedate" value="<%=employe.getLeaveDate()%>" placeholder="退社日付">
+                                                            <input type="text" class="form-control datepicker" id="e_leavedate" name="e_leavedate" value="<%=employe.getLeaveDate()%>" placeholder="退社日付">
                                                         </div>
                                                     </td>
                                                 </tr>

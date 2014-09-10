@@ -21,7 +21,7 @@ List<DepartmentBean> departmentList = (List<DepartmentBean>)request.getAttribute
 <aside class="right-side">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="box box-danger">
+        <div class="box box-danger" style="width:600px;">
             <div class="box-header">
                 <h3 class="box-title"><i class="fa fa-edit"></i>部門追加</h3>
             </div>
@@ -46,7 +46,7 @@ List<DepartmentBean> departmentList = (List<DepartmentBean>)request.getAttribute
 
     <!-- Main content -->
     <section class="content">
-        <div class="box">
+        <div class="box" style="width:600px;">
             <div class="box-header">
                 <h3 class="box-title">部門情報一覧<h3>
             </div><!-- /.box-header -->

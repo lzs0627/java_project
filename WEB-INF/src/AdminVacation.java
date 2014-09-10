@@ -8,46 +8,46 @@ import java.util.Date;
 import beans.*;
 import dao.*;
 
-public class AdminAttendance extends HttpServlet {
+public class AdminVacation extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{
 
-
-    request.setAttribute("menuid", "attendance");
+    request.setAttribute("menuid", "vacation");
 
     DepartmentDao departmentDao = new DepartmentDao();
     List<DepartmentBean> departmentlist = departmentDao.getAllDepartments("50","0");
 
     String did = request.getParameter("did");
     String eid = request.getParameter("eid");
-    String date = request.getParameter("date");
+    String start = request.getParameter("start");
+    String end = request.getParameter("end");
+
 
     EmployeDao employeDao = new EmployeDao();
-    AttendanceDao attendanceDao = new AttendanceDao();
+    VacationDao vacationDao = new VacationDao();
 
     List<EmployeBean> employelist = null;
-    List<AttendanceBean> attendancelist = null;
+    List<VacationBean> vacationlist = null;
 
     if (did != null && did.length() > 0) {
         employelist = employeDao.getEmployesByDid(did,"50","0");
     }
 
     if (eid != null && eid.length() > 0) {
-        attendancelist = attendanceDao.getListById(eid,date);
+        vacationlist = vacationDao.getListById(eid,start,end);
     }
-    Calendar cal = Calendar.getInstance();
+
     request.setAttribute("departmentlist", departmentlist);
     request.setAttribute("employelist", employelist);
-    request.setAttribute("attendancelist", attendancelist);
+    request.setAttribute("vacationlist", vacationlist);
     request.setAttribute("did", did);
     request.setAttribute("eid", eid);
-    request.setAttribute("currentYear", cal.get(Calendar.YEAR));
         
 
     getServletConfig()
         .getServletContext()
-        .getRequestDispatcher("/jsp/admin_attendance.jsp" )
+        .getRequestDispatcher("/jsp/admin_vacation.jsp" )
         .forward(request, response);
     
 
@@ -57,41 +57,45 @@ public class AdminAttendance extends HttpServlet {
     throws IOException, ServletException{
 
         request.setCharacterEncoding("UTF-8");
-        request.setAttribute("menuid", "attendance");
+
         String action = request.getParameter("action");
         String aid = request.getParameter("aid");
         String did = request.getParameter("did");
         String eid = request.getParameter("eid");
-        String date_at = request.getParameter("date_at");
+       
+        String days = request.getParameter("days");
         String start_at = request.getParameter("start_at");
         String end_at = request.getParameter("end_at");
+        String title = request.getParameter("title");
 
-        AttendanceDao attendanceDao = new AttendanceDao();
-        AttendanceBean attendanceBean = new AttendanceBean();
+        VacationDao vacationDao = new VacationDao();
+        VacationBean vacationBean = new VacationBean();
 
 
         if (action.equals("add")) {
 
-            attendanceBean.setEmployeId(eid);
-            attendanceBean.setDateAt(date_at);
-            attendanceBean.setStartAt(start_at);
-            attendanceBean.setEndAt(end_at);
-            attendanceDao.add(attendanceBean);
+            vacationBean.setEmployeId(eid);
+            vacationBean.setDays(days);
+            vacationBean.setStartAt(start_at);
+            vacationBean.setEndAt(end_at);
+            vacationBean.setTitle(title);
+            vacationDao.add(vacationBean);
 
         } else if (action.equals("update")) {
 
-            attendanceBean.setId(aid);
-            attendanceBean.setEmployeId(eid);
-            attendanceBean.setDateAt(date_at);
-            attendanceBean.setStartAt(start_at);
-            attendanceBean.setEndAt(end_at);
-            attendanceDao.add(attendanceBean);
+            vacationBean.setId(aid);
+            vacationBean.setEmployeId(eid);
+            vacationBean.setDays(days);
+            vacationBean.setStartAt(start_at);
+            vacationBean.setEndAt(end_at);
+            vacationBean.setTitle(title);
+            vacationDao.add(vacationBean);
             
         } else if (action.equals("del")) {
-            attendanceDao.delete(aid);
+            vacationDao.delete(aid);
         }
         
-       response.sendRedirect("/wanwan/admin/attendance?eid="+eid + "&did="+did);
+       response.sendRedirect("/wanwan/admin/vacation?eid="+eid + "&did="+did +"&start_at="+start_at+"&end_at="+end_at);
 
   }
 }

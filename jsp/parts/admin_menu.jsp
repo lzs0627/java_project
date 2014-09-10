@@ -30,7 +30,11 @@ if (menuid == null) {
                                 <i class="fa fa-dashboard"></i> <span>出勤管理</span>
                             </a>
                         </li>
-                       
+                        <li class="<%=menuid.equals("vacation")?"active":""%>">
+                            <a href="/wanwan/admin/vacation">
+                                <i class="fa fa-dashboard"></i> <span>休暇管理</span>
+                            </a>
+                        </li>
                         <li class="treeview active">
                             <a href="#">
                                 <i class="fa fa-folder"></i> <span>システム設定</span>

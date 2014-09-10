@@ -29,7 +29,7 @@ DepartmentBean departmentbean = (DepartmentBean)request.getAttribute("department
                     <form action="" method="post" style="float:right;margin-left:20px;" onsubmit="return confirm('削除してもOKですか？')">
                         <input type="hidden" name="action" value="del"/>
                         <input type="hidden" name="pid" value="<%=departmentbean.getId()%>"/>
-                        <button type="submit" class="btn btn-danger  btn-sm" id="btn-add">削除する</button>
+                        <button type="submit" class="btn btn-primary  btn-sm" id="btn-add">削除する</button>
                     </form>
                     </h3>
                 </div>

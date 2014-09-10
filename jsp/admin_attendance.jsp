@@ -27,28 +27,38 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
 <aside class="right-side">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="box box-danger">
+        <div class="box box-danger" style="width:800px;">
             <div class="box-header">
                 <h3 class="box-title"><i class="fa fa-edit"></i>出勤検索</h3>
             </div>
             <div class="box-body">
                 <div class="row">
                     <form action="/wanwan/admin/attendance" method="get" id="formselect">                       
-                        <div class="col-xs-2">
-                            <select name="did">
-                                <option>所属部門</option>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    所属
+                                </div>
+                            <select name="did" class="form-control">
+                                <option>所属</option>
     <% if (departmentlist!=null) for(DepartmentBean department:departmentlist){%>
                                 <option value="<%=department.getId()%>" <%=did!=null&&did.equals(department.getId())?"selected":""%>><%=department.getName()%></option>
     <% } %>
                             </select>
+                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <select name="eid">
+                        <div class="col-xs-4">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                社員
+                            </div>
+                            <select name="eid" class="form-control">
                                 <option value="">社員選択</option>
     <% if (employelist!=null) for(EmployeBean employe:employelist){%>
                                 <option value="<%=employe.getId()%>" <%=eid!=null&&eid.equals(employe.getId())?"selected":""%>><%=employe.getJpName()%></option>
     <% } %>
-                            </select>                        
+                            </select>  
+                        </div>                      
                         </div>
                         <div class="col-xs-8">
                            &nbsp;
@@ -59,7 +69,7 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
             </div><!-- /.box-body -->
         </div>
 <%if(eid!=null && eid.length()>0) {%>        
-        <div class="box box-danger">
+        <div class="box box-danger" style="width:800px;">
             <div class="box-header">
                 <h3 class="box-title"><i class="fa fa-edit"></i>出勤追加</h3>
             </div>
@@ -69,62 +79,31 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
                         <input type="hidden" name="action" value="add" />
                         <input type="hidden" name="eid" value="<%=eid%>" />
                         <input type="hidden" name="did" value="<%=did%>" />
-                        <div class="col-xs-2">
-                            <select name="date_at_ym">
-                                <option value="<%=currentYear%>01"><%=currentYear%>年01月</option>
-                                <option value="<%=currentYear%>02"><%=currentYear%>年02月</option>
-                                <option value="<%=currentYear%>03"><%=currentYear%>年03月</option>
-                                <option value="<%=currentYear%>04"><%=currentYear%>年04月</option>
-                                <option value="<%=currentYear%>05"><%=currentYear%>年05月</option>
-                                <option value="<%=currentYear%>06"><%=currentYear%>年06月</option>
-                                <option value="<%=currentYear%>07"><%=currentYear%>年07月</option>
-                                <option value="<%=currentYear%>08"><%=currentYear%>年08月</option>
-                                <option value="<%=currentYear%>09"><%=currentYear%>年09月</option>
-                                <option value="<%=currentYear%>10"><%=currentYear%>年10月</option>
-                                <option value="<%=currentYear%>11"><%=currentYear%>年11月</option>
-                                <option value="<%=currentYear%>12"><%=currentYear%>年12月</option>
-                            </select>
-                            <select name="date_at_d">
-                                <option value="01">01日</option>
-                                <option value="02">02日</option>
-                                <option value="03">03日</option>
-                                <option value="04">04日</option>
-                                <option value="05">05日</option>
-                                <option value="06">06日</option>
-                                <option value="07">07日</option>
-                                <option value="08">08日</option>
-                                <option value="09">09日</option>
-                                <option value="10">10日</option>
-                                <option value="11">11日</option>
-                                <option value="12">12日</option>
-                                <option value="13">13日</option>
-                                <option value="14">14日</option>
-                                <option value="15">15日</option>
-                                <option value="16">16日</option>
-                                <option value="17">17日</option>
-                                <option value="18">18日</option>
-                                <option value="19">19日</option>
-                                <option value="20">20日</option>
-                                <option value="21">21日</option>
-                                <option value="22">22日</option>
-                                <option value="23">23日</option>
-                                <option value="24">24日</option>
-                                <option value="25">25日</option>
-                                <option value="26">26日</option>
-                                <option value="27">27日</option>
-                                <option value="28">28日</option>
-                                <option value="29">29日</option>
-                                <option value="30">30日</option>
-                                <option value="31">31日</option>
-                            </select>
+                        <div class="col-xs-3">
+                             <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker" name="date_at" placeholder="出勤日付">
+                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <input type="text" name="start_at" placeholder="出勤時間"/>
+                        <div class="col-xs-3">
+                            <div class="input-group bootstrap-timepicker">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right timepicker" name="start_at" placeholder="出勤時間">
+                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <input type="text" name="end_at" placeholder="退社時間"/>
+                        <div class="col-xs-3">
+                            <div class="input-group bootstrap-timepicker">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right timepicker" name="end_at" placeholder="退社時間">
+                            </div>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-3" style="text-align:center">
                             <button type="submit" class="btn btn-primary" id="btn-add">追加する</button>
                         </div>
                     </form>
@@ -136,7 +115,7 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
 
     <!-- Main content -->
     <section class="content">
-        <div class="box">
+        <div class="box" style="width:800px;">
             <div class="box-header">
                 <h3 class="box-title">出勤一覧<h3>
             </div><!-- /.box-header -->
@@ -154,9 +133,31 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
 
                     <tr id="attendance<%=attendance.getId()%>">
                         <td><input type="hidden" name="aid" value="<%=attendance.getId()%>" /><%=attendance.getId()%></td>
-                        <td><input name="date_at" value="<%=attendance.getDateAt()%>" /></td>
-                        <td><input name="start_at" value="<%=attendance.getStartAt()%>" /></td>
-                        <td><input name="end_at" value="<%=attendance.getEndAt()%>" /></td>
+                        <td>
+                            
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right datepicker" name="date_at" value="<%=attendance.getDateAt()%>" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group bootstrap-timepicker">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right timepicker" name="start_at" value="<%=attendance.getStartAt()%>" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group bootstrap-timepicker">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right timepicker" name="end_at" value="<%=attendance.getEndAt()%>" />
+                            </div>
+                        </td>
                         <td>
                             <a href="javascript:void()" class="btn btn-small btn-primary a-edit" data-aid="<%=attendance.getId()%>" >修正</a>
                             <a href="javascript:void()" class="btn btn-small btn-primary a-del" data-aid="<%=attendance.getId()%>" >削除</a>
@@ -212,6 +213,8 @@ $(document).ready(function(){
         $("#a-target div").append('<input name="aid" value="'+id+'">');
         $("#a-target").submit();
     });
+
+    
 });    
 </script>
 </body>

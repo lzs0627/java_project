@@ -21,7 +21,9 @@ List<EmployeBean> employeList = (List<EmployeBean>)request.getAttribute("employe
 <aside class="right-side">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-  <a href="/wanwan/admin/employe?eid=" class="btn btn-primary btn-sm">社員追加</a>
+        <a href="/wanwan/admin/employe?eid=" class="btn btn-primary btn-sm">社員追加</a>｜
+        <a href="/wanwan/admin/department" class="btn btn-primary btn-sm">所属追加</a>｜
+        <a href="/wanwan/admin/position" class="btn btn-primary btn-sm">役職管理</a>
     </section>
 
     <!-- Main content -->
