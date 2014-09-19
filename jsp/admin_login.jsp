@@ -25,17 +25,17 @@ String error = (String)request.getAttribute("error");
     <body class="bg-black">
 
         <div class="form-box" id="login-box">
-            <div class="header">管理者ログイン</div>
+            <div class="header">KNN企業人事管理ログイン</div>
             <form action="" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="User Name"/>
+                        ID<input type="text" name="username" class="form-control" placeholder="User Name"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group">PASSWORD
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
                     </div>          
                     <div class="form-group">
-                        <label><input type="checkbox" name="remember_me"/> Remember me</label>
+                        <label><input type="checkbox" name="remember_me"/> 次回からIDを入力省略</label>
                     </div>
                     <%if(error != null) {%>
                     <div class="form-group has-warning">
@@ -44,9 +44,9 @@ String error = (String)request.getAttribute("error");
                     <%}%>
                 </div>
                 <div class="footer">                                                               
-                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
+                    <button type="submit" class="btn bg-olive btn-block">ログイン</button>  
                     
-                    <p><a href="#">I forgot my password</a></p>
+                    <p><a href="#">パスワードを忘れた？</a></p>
                     
                 </div>
             </form>

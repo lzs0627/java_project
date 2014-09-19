@@ -23,7 +23,7 @@ List<EmployeBean> employeList = (List<EmployeBean>)request.getAttribute("employe
     <section class="content-header">
         <a href="/wanwan/admin/employe?eid=" class="btn btn-primary btn-sm">社員追加</a>｜
         <a href="/wanwan/admin/department" class="btn btn-primary btn-sm">所属追加</a>｜
-        <a href="/wanwan/admin/position" class="btn btn-primary btn-sm">役職管理</a>
+        <a href="/wanwan/admin/position" class="btn btn-primary btn-sm">役職追加</a>
     </section>
 
     <!-- Main content -->
@@ -42,7 +42,7 @@ List<EmployeBean> employeList = (List<EmployeBean>)request.getAttribute("employe
                         <td><label style="width:70px;">社員番号:</label><a href="/wanwan/admin/employe?eid=<%=employebean.getId()%>" alt="修正">E00<%=employebean.getId()%></a></td>                        
                     </tr>
                     <tr>
-                        <td><label style="width:70px;">生年月日:</label></td>
+                        <td><label style="width:70px;">生年月日:</label><%=employebean.getBirthday()%></td>
                     </tr>
                     <tr>
                         <td><label style="width:70px;">メール:</label><%=employebean.getEmail()%></td>

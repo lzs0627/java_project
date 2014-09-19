@@ -133,8 +133,8 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
 
                     <tr id="attendance<%=attendance.getId()%>">
                         <td><input type="hidden" name="aid" value="<%=attendance.getId()%>" /><%=attendance.getId()%></td>
+                        
                         <td>
-                            
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>

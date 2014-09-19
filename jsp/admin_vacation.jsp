@@ -68,7 +68,7 @@ String eid = (String)request.getAttribute("eid");
                 
             </div><!-- /.box-body -->
         </div>
-<%if(eid!=null && eid.length()>0) {%>        
+    <%if(eid!=null && eid.length()>0) {%>        
         <div class="box box-danger" style="width:820px;">
             <div class="box-header">
                 <h3 class="box-title"><i class="fa fa-edit"></i>休暇追加</h3>
@@ -156,9 +156,9 @@ $(document).ready(function(){
             prev: "<span class='fa fa-caret-left'></span>",
             next: "<span class='fa fa-caret-right'></span>",
             today: '今日',
-            month: 'month',
-            week: 'week',
-            day: 'day'
+            month: '月',
+            week: '週',
+            day: '日'
         },                  
         editable: false,
         droppable: false,

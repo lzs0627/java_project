@@ -45,112 +45,102 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
         <div class="box box-primary" style="width:810px;">
                                 <!-- form start -->
                                 <form role="form" action="/wanwan/admin/employe" method="post">
-                                    <input type="hidden" name="action" value="<%=action%>" />
-                                    <input type="hidden" name="e_id" value="<%=employe.getId()%>" />
-                                    <div class="box-header">
-                                        <div class="input-group" style="width:780px;">
-                                            <span for="e_name" class="input-group-addon">名前</span>
-                                            <input type="text" class="form-control" id="e_name" name="e_name" value="<%=employe.getJpName()%>" placeholder="名前">
+<input type="hidden" name="action" value="<%=action%>" />
+    <input type="hidden" name="e_id" value="<%=employe.getId()%>" />
+        <div class="box-header">
+            <div class="input-group" style="width:780px;">
+            <span for="e_name" class="input-group-addon">名前</span>
+                <input type="text" class="form-control" id="e_name" name="e_name" value="<%=employe.getJpName()%>" placeholder="名前">
                                      
-                                            <span for="e_en_name" class="input-group-addon">名前（読み方）</span>
-                                            <input type="text" class="form-control" id="e_en_name" name="e_en_name" value="<%=employe.getEnName()%>" placeholder="名前（読み方）">
-                                        </div>
-                                    </div><!-- /.box-header -->
-                                    <div class="box-body">
+            <span for="e_en_name" class="input-group-addon">名前（読み方）</span>
+                 <input type="text" class="form-control" id="e_en_name" name="e_en_name" value="<%=employe.getEnName()%>" placeholder="名前（読み方）">
+            </div>
+        </div><!-- /.box-header -->
+            <div class="box-body">
 
-                                        <table class="table table-bordered ">
-                                            <tbody>
-                                                <tr>
-                                                    <td rowspan="5" style="width:150px;" id="faceimg">
-<%
-String faceimg = employe.getFaceImg();
+         <table class="table table-bordered ">
+            <tbody>
+              <tr>
+                <td rowspan="5" style="width:150px;" id="faceimg">
+<%String faceimg = employe.getFaceImg();
 if(faceimg==null || faceimg.length()<1){%>
-                                                    <label><input type="file" id="file"></label>
+    <label><input type="file" id="file"></label>
 <%}else{%>
-                                                    <img src="/wanwan/img/faces/<%=employe.getFaceImg()%>" width="150"/>
-<%}%>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span for="e_birthday" class="input-group-addon">生年月日</span>
-                                                            <input type="text" class="form-control datepicker" id="e_birthday" name="e_birthday" value="<%=employe.getBirthday()%>" placeholder="生年月日">
-                                                        </div>
-                                                    </td>                        
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span for="e_mail" class="input-group-addon">メール</span>
-                                                            <input type="email" class="form-control" id="e_mail" name="e_email" value="<%=employe.getEmail()%>" placeholder="メール">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span for="e_password" class="input-group-addon">パスワード</span>
-                                                            <input type="password" class="form-control" id="e_password" name="e_password" value="<%=employe.getPassword()%>" placeholder="Password">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>                        
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span for="e_enterdate" class="input-group-addon">入社日付</span>
-                                                            <input type="text" class="form-control datepicker" id="e_enterdate" name="e_enterdate" value="<%=employe.getEnterDate()%>"placeholder="入社日付">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr> 
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span for="e_leavedate" class="input-group-addon">退社日付</span>
-                                                            <input type="text" class="form-control datepicker" id="e_leavedate" name="e_leavedate" value="<%=employe.getLeaveDate()%>" placeholder="退社日付">
+    <img src="/wanwan/img/faces/<%=employe.getFaceImg()%>" width="150"/><%}%>
+                </td>
+     <td>
+     <div class="input-group">
+     <span for="e_birthday" class="input-group-addon">生年月日</span>
+    <input type="text" class="form-control datepicker" id="e_birthday" name="e_birthday" value="<%=employe.getBirthday()%>" placeholder="生年月日">
+     </div>
+    </td>                        
+            </tr>
+    <tr><td>
+    <div class="input-group">
+        <span for="e_mail" class="input-group-addon">メール</span>
+            <input type="email" class="form-control" id="e_mail" name="e_email" value="<%=employe.getEmail()%>" placeholder="メール">
+    </div>
+        </td></tr>
+    <tr> <td>
+    <div class="input-group">
+    <span for="e_password" class="input-group-addon">パスワード</span>
+        <input type="password" class="form-control" id="e_password" name="e_password" value="<%=employe.getPassword()%>" placeholder="Password">
+    </div>
+    </td></tr>
+    <tr><td>
+        <div class="input-group">
+    <span for="e_enterdate" class="input-group-addon">入社日付</span>
+    <input type="text" class="form-control datepicker" id="e_enterdate" name="e_enterdate" value="<%=employe.getEnterDate()%>"placeholder="入社日付">
+        </div>
+    </td></tr>
+    <tr> <td>
+        <div class="input-group">
+    <span for="e_leavedate" class="input-group-addon">退社日付</span>
+        <input type="text" class="form-control datepicker" id="e_leavedate" name="e_leavedate" value="<%=employe.getLeaveDate()%>" placeholder="退社日付">
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2">
-                                                        <div class="input-group" style="width:780px;">
-                                                            <span for="e_address" class="input-group-addon">住所</span>
-                                                            <input type="text" class="form-control" id="e_address" name="e_address" value="<%=employe.getAddress()%>" placeholder="住所">
+ <td colspan="2">
+    <div class="input-group" style="width:780px;">
+        <span for="e_address" class="input-group-addon">住所</span>
+            <input type="text" class="form-control" id="e_address" name="e_address" value="<%=employe.getAddress()%>" placeholder="住所">
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">所属</span>
-                                                            <select class="form-control" name="e_department" style="width:120px;">
-                                                                <%for(DepartmentBean department:departmentList){
-                                                                    String did = department.getId();
-                                                                %>
-                                                                <option value="<%=did%>" <%=did.equals(employe.getDepartmentId())?"selected":""%>><%=department.getName()%></option>
-                                                                <%}%>
-                                                            </select>
+<tr><td colspan="2">
+    <div class="input-group">
+    <span class="input-group-addon">所属</span>
+        <select class="form-control" name="e_department" style="width:120px;">
+    <%for(DepartmentBean department:departmentList){
+            String did = department.getId();
+    %>
+    <option value="<%=did%>" <%=did.equals(employe.getDepartmentId())?"selected":""%>><%=department.getName()%></option>
+    <%}%>
+        </select>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">職役</span>
-                                                            <select class="form-control" name="e_position"  style="width:120px;">
-                                                                <%for(PositionBean position:positionList){
-                                                                    String pid = position.getId();
-                                                                %>
-                                                                <option value="<%=pid%>" <%=pid.equals(employe.getPositionId())?"selected":""%>><%=position.getName()%></option>
-                                                                <%}%>
-                                                            </select>
+<tr><td colspan="2">
+    <div class="input-group">
+    <span class="input-group-addon">役職</span>
+    <select class="form-control" name="e_position"  style="width:120px;">
+    <%for(PositionBean position:positionList){
+            String pid = position.getId();
+     %>
+        <option value="<%=pid%>" <%=pid.equals(employe.getPositionId())?"selected":""%>><%=position.getName()%></option>
+        <%}%>
+    </select>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div><!-- /.box-body -->
+    </div><!-- /.box-body -->
 
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">送信する</button>
+            <button type="submit" class="btn btn-primary">リセット</button>
                                     </div>
                                 </form>
                             </div>

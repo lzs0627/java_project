@@ -18,7 +18,6 @@ public class AttendanceBean {
 		return this.employe_id;
 	}
 
-
 	private String date_at;
 	public void setDateAt(String date) {
 		this.date_at = date;
