@@ -29,7 +29,7 @@ public class AdminLogin extends HttpServlet {
     if (adminDao.is_admin(name, password)) {
     	HttpSession sn = request.getSession();
         sn.setAttribute("admin", name);
-        response.sendRedirect("/wanwan/admin/vacation");
+        response.sendRedirect("/wanwan/admin/employe");
     } else {
 
     	request.setAttribute("error", "ユーザー名かパスワードが間違っています");
