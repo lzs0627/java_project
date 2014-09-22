@@ -66,7 +66,10 @@ List<PositionBean> positionList = (List<PositionBean>)request.getAttribute("posi
 if(faceimg==null || faceimg.length()<1){%>
     <label><input type="file" id="file"></label>
 <%}else{%>
-    <img src="/wanwan/img/faces/<%=employe.getFaceImg()%>" width="150"/><%}%>
+    <img src="/wanwan/img/faces/<%=employe.getFaceImg()%>" width="150"/>
+    <br/><br/>
+    <label><input type="file" id="file"></label>
+    <%}%>
                 </td>
      <td>
      <div class="input-group">
