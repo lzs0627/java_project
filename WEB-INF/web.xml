@@ -107,4 +107,13 @@
     <servlet-name>admin_vacation_search</servlet-name>
     <url-pattern>/admin/vacation/search</url-pattern>
   </servlet-mapping>
+  <!--find password-->
+  <servlet>
+    <servlet-name>find_password</servlet-name>
+    <servlet-class>FindPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>find_password</servlet-name>
+    <url-pattern>/find_password</url-pattern>
+  </servlet-mapping>
 </web-app>

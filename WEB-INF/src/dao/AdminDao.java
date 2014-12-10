@@ -36,7 +36,49 @@ public class AdminDao {
 		return false;
 	}
 
+	public String find_password(String name)
+	{
+		String sql = "SELECT password";
+				sql +=" FROM admin where name='" + name + "'";
+				
+		try {
+			Connection con = DBManager.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet result = stmt.executeQuery(sql);
+			
 
+			while (result.next()) {
+				return result.getString(1);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 
-	
+		return null;
+	}
+
+	public String find_email(String name)
+	{
+		String sql = "SELECT email";
+				sql +=" FROM admin where name='" + name + "'";
+				
+		try {
+			Connection con = DBManager.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet result = stmt.executeQuery(sql);
+			
+
+			while (result.next()) {
+				return result.getString(1);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 }
