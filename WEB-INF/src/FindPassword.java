@@ -38,43 +38,55 @@ public class FindPassword extends HttpServlet {
         String to = adminDao.find_email(username);
         String result;
         if (password!=null && to!=null) {
+          try{
+              Properties property = new Properties();
 
-            
-            // Sender's email ID needs to be mentioned
-            String from = "system@system.com";
+              property.put("mail.smtp.host","news56.sakura.ne.jp");
 
-            // Assuming you are sending email from localhost
-            String host = "localhost";
+              //GmailのSMTPを使う場合
+              property.put("mail.smtp.auth", "true");
+              property.put("mail.smtp.starttls.enable", "true");
+              property.put("mail.smtp.host", "news56.sakura.ne.jp");
+              property.put("mail.smtp.port", "25");
+              property.put("mail.smtp.debug", "true");
 
-            // Get system properties object
-            Properties properties = System.getProperties();
+              Session session = Session.getInstance(property, new javax.mail.Authenticator(){
+                  protected PasswordAuthentication getPasswordAuthentication(){
+                      return new PasswordAuthentication("agri_tester@news56.sakura.ne.jp", "agri@1234");
+                  }
+              });
 
-            // Setup mail server
-            properties.setProperty("mail.smtp.host", host);
+              /*
+              //一般的なSMTPを使う場合
 
-            // Get the default Session object.
-            Session mailSession = Session.getDefaultInstance(properties);
+              //ポートが25の場合は省略可能
+              property.put("mail.smtp.port", 25);
 
-            try{
-              // Create a default MimeMessage object.
-              MimeMessage message = new MimeMessage(mailSession);
-              // Set From: header field of the header.
-              message.setFrom(new InternetAddress(from));
-              // Set To: header field of the header.
-              message.addRecipient(Message.RecipientType.TO,
-                                       new InternetAddress(to));
-              // Set Subject: header field
-              message.setSubject("Password Recovery!");
-             
-              // Send the actual HTML message, as big as you like
-              message.setContent("<h1>password:"+password+"</h1>",
-                                    "text/html" );
-              // Send message
-              Transport.send(message);
+              Session session = 
+                      Session.getDefaultInstance(property, null);
+              */
+
+              MimeMessage mimeMessage = new MimeMessage(session);
+
+              InternetAddress toAddress = 
+                      new InternetAddress(to, username);
+
+              mimeMessage.setRecipient(Message.RecipientType.TO, toAddress);
+
+              InternetAddress fromAddress = 
+                      new InternetAddress("agri_tester@news56.sakura.ne.jp","パスワード探す");
+
+              mimeMessage.setFrom(fromAddress);
+
+              mimeMessage.setSubject("パスワード探す", "UTF-8");
+
+              mimeMessage.setText("password:" + password, "UTF-8");
+
+              Transport.send(mimeMessage);
+
               result = "パスワードを" + to + "に送信しました。";
-            }catch (MessagingException mex) {
-              mex.printStackTrace();
-              result = "Error: unable to send message....";
+            }catch (Exception e) {
+              result = "Error: unable to send message...." + e;
             }
         } else {
             result = "Error: ＩＤが見つけません";
