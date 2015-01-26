@@ -47,9 +47,9 @@ public class FindPassword extends HttpServlet {
               property.put("mail.smtp.auth", "true");
               property.put("mail.smtp.starttls.enable", "true");
               property.put("mail.smtp.host", "news56.sakura.ne.jp");
-              property.put("mail.smtp.port", "25");
+              property.put("mail.smtp.port", "587");
               property.put("mail.smtp.debug", "true");
-
+              property.put("mail.smtp.timeout", 10000);
               Session session = Session.getInstance(property, new javax.mail.Authenticator(){
                   protected PasswordAuthentication getPasswordAuthentication(){
                       return new PasswordAuthentication("agri_tester@news56.sakura.ne.jp", "agri@1234");

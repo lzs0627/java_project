@@ -26,11 +26,7 @@ PositionBean positionbean = (PositionBean)request.getAttribute("position");
                 
                 <div class="col-xs-4">
                     <h3 class="box-title"><i class="fa fa-edit"></i>役職修正
-                    <form action="" method="post" style="float:right;margin-left:20px;" onsubmit="return confirm('削除してもOKですか？')">
-                        <input type="hidden" name="action" value="del"/>
-                        <input type="hidden" name="pid" value="<%=positionbean.getId()%>"/>
-                        <button type="submit" class="btn btn-primary  btn-sm" id="btn-add">削除する</button>
-                    </form>
+                    
                     </h3>
                 </div>
             </div>
@@ -79,7 +75,11 @@ PositionBean positionbean = (PositionBean)request.getAttribute("position");
                             <%=position.getDescription()%>
                         </td>
                         <td>
-                            <a href="/wanwan/admin/position?pid=<%=position.getId()%>"><i class="fa fa-plus-square"></i> Edit</a>
+                            <form action="" method="post" style="float:right;margin-left:20px;" onsubmit="return confirm('削除してもOKですか？')">
+                        <input type="hidden" name="action" value="del"/>
+                        <input type="hidden" name="pid" value="<%=positionbean.getId()%>"/>
+                        <button type="submit" class="btn btn-primary  btn-sm" id="btn-add">削除する</button>
+                    </form>
                         </td>
                     </tr>
 <% } %>                                        

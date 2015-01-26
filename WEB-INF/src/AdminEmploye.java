@@ -12,14 +12,16 @@ public class AdminEmploye extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{
 
-    request.setAttribute("menuid", "employe");   
+    request.setAttribute("menuid", "employe");
+    String action = request.getParameter("action");
+   
     String id = request.getParameter("eid");
     
     EmployeDao employeDao = new EmployeDao();
 
     if (id == null) {
 
-        List<EmployeBean> ls = employeDao.getAllEmployes("50","0");
+        List<EmployeBean> ls = employeDao.getAllEmployes("550","0");
         request.setAttribute("employeList", ls);  
 
         getServletConfig()

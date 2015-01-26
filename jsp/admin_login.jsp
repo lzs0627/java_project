@@ -46,7 +46,7 @@ String error = (String)request.getAttribute("error");
                 <div class="footer">                                                               
                     <button type="submit" class="btn bg-olive btn-block">ログイン</button>  
                     
-                    <p><a href="#">パスワードを忘れた？</a></p>
+                    <p><a href="/wanwan/find_password">パスワードを忘れた？</a></p>
                     
                 </div>
             </form>

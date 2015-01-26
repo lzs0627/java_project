@@ -33,6 +33,7 @@ List<EmployeBean> employeList = (List<EmployeBean>)request.getAttribute("employe
     <div class="box" style="width:400px;float:left;overflow:auto;margin:5px;">
         <div class="box-header">
             <h3 class="box-title"><%=employebean.getJpName()%><small><%=employebean.getEnName()%></small><h3>
+                
         </div><!-- /.box-header -->
         <div class="box-body">
             <table class="table table-bordered">

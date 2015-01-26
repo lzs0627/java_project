@@ -53,9 +53,9 @@ String eid = (String)request.getAttribute("eid");
                                 社員
                             </div>
                             <select name="eid" class="form-control">
-                                <option value="">社員選択</option>
+                                <option>社員選択</option>
     <% if (employelist!=null) for(EmployeBean employe:employelist){%>
-                                <option value="<%=employe.getId()%>" <%=eid!=null&&eid.equals(employe.getId())?"selected":""%>><%=employe.getJpName()%></option>
+                            <option value="<%=employe.getId()%>" <%=eid!=null&&eid.equals(employe.getId())?"selected":""%>><%=employe.getJpName()%></option>
     <% } %>
                             </select>  
                         </div>                      

@@ -82,7 +82,7 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
                         <div class="col-xs-3">
                              <div class="input-group">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
+                                    <i class="fa fa-calendar"></i>
                                 </div>
                                 <input type="text" class="form-control pull-right datepicker" name="date_at" placeholder="出勤日付">
                             </div>
@@ -90,7 +90,7 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
                         <div class="col-xs-3">
                             <div class="input-group bootstrap-timepicker">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
+                                    <i class="fa fa-clock-o"></i>
                                 </div>
                                 <input type="text" class="form-control pull-right timepicker" name="start_at" placeholder="出勤時間">
                             </div>
@@ -104,7 +104,7 @@ Integer currentYear = (Integer) request.getAttribute("currentYear");
                             </div>
                         </div>
                         <div class="col-xs-3" style="text-align:center">
-                            <button type="submit" class="btn btn-primary" id="btn-add">追加する</button>
+                            <button type="submit" class="btn btn-primary" id="btn-add">出勤</button>
                         </div>
                     </form>
                 </div>
